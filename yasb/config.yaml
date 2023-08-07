@@ -1,0 +1,91 @@
+watch_stylesheet: false
+watch_config: false
+
+bars:
+  yasb-bar:
+    enabled: true
+    screens: ['*']
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark: false
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: "100%"
+      height: 32
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left:   ["komorebi_workspaces"]
+      center: ["active_window"]
+      right:  ["komorebi_stack", "komorebi_monocle", "clock"]
+
+widgets:
+  active_window:
+    type: "yasb.active_window.ActiveWindowWidget"
+    options:
+      label: "{win[title]}"
+      label_no_window: ""
+      max_length: 48
+      max_length_ellipsis: "..."
+      monitor_exclusive: true
+      callbacks:
+          on_left: "do_nothing"
+
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+        label: "{%a %b %d  %H:%M}"
+        timezones: ["Asia/Manila"]
+        callbacks:
+          on_left: "do_nothing"
+
+  komorebi_workspaces:
+    type: "komorebi.workspaces.WorkspaceWidget"
+    options:
+        label_offline: "Komorebi Offline"
+        label_workspace_btn: "{index}"
+        label_default_name: "{index}"
+        label_zero_index: false
+        hide_empty_workspaces: false
+
+  komorebi_stack:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[stack][label]}"
+      label_alt: "{data[stack][label_alt]}"
+      label: "{data[stack][label]}"
+      label_alt: "{data[stack][label_alt]}"
+      class_name: "komorebi-stack"
+      exec_options:
+        run_cmd: "nvim.exe --clean -l C:/Users/chase/.yasb/komorebi_state.lua --query"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+
+  komorebi_monocle:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[monocle][label]}"
+      label_alt: "{data[monocle][label_alt]}"
+      class_name: "komorebi-monocle"
+      exec_options:
+        run_cmd: "nvim.exe --clean -l C:/Users/chase/.yasb/komorebi_state.lua"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"

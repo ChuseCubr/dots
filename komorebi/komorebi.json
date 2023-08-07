@@ -1,0 +1,68 @@
+{
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
+  "window_hiding_behaviour": "Minimize",
+  "cross_monitor_move_behaviour": "Insert",
+  "alt_focus_hack": false,
+  "default_workspace_padding": 0,
+  "default_container_padding": 5,
+  "active_window_border": false,
+  "active_window_border_colours": {
+    "single": {
+      "r": 235,
+      "g": 188,
+      "b": 186
+    },
+    "stack": {
+      "r": 156,
+      "g": 207,
+      "b": 216
+    },
+    "monocle": {
+      "r": 196,
+      "g": 167,
+      "b": 231
+    }
+  },
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "2",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "3",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "4",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "5",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "6",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "7",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "8",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "9",
+          "layout": "VerticalStack"
+        }
+      ]
+    }
+  ]
+}
