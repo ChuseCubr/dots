@@ -1,6 +1,0 @@
-: exec nvim
-: !nvim start.py
-: q
-: q
-: qa
-: w
