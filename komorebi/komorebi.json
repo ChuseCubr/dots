@@ -27,39 +27,39 @@
     {
       "workspaces": [
         {
-          "name": "1",
+          "name": "一",
           "layout": "VerticalStack"
         },
         {
-          "name": "2",
+          "name": "二",
           "layout": "VerticalStack"
         },
         {
-          "name": "3",
+          "name": "三",
           "layout": "VerticalStack"
         },
         {
-          "name": "4",
+          "name": "四",
           "layout": "VerticalStack"
         },
         {
-          "name": "5",
+          "name": "五",
           "layout": "VerticalStack"
         },
         {
-          "name": "6",
+          "name": "六",
           "layout": "VerticalStack"
         },
         {
-          "name": "7",
+          "name": "七",
           "layout": "VerticalStack"
         },
         {
-          "name": "8",
+          "name": "八",
           "layout": "VerticalStack"
         },
         {
-          "name": "9",
+          "name": "九",
           "layout": "VerticalStack"
         }
       ]
