@@ -1,4 +1,4 @@
-#! nvim -l
+#! nvim --clean --headless -l
 
 local tmp = vim.fn.stdpath("state") .. "/last_dir_path"
 if vim.fn.filereadable(tmp) == 1 then
