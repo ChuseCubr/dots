@@ -4,8 +4,10 @@ local M = {}
 local uv = vim.loop
 
 function M.create_server(args)
-	local pipe_path = "\\\\.\\pipe\\" .. args.pipe_name
+	assert(args.pipe_name)
+	assert(args.callback)
 
+	local pipe_path = "\\\\.\\pipe\\" .. args.pipe_name
 	local server = uv.new_pipe(false)
 	assert(server, "Failed to create server")
 
@@ -20,7 +22,10 @@ function M.create_server(args)
 		client:read_start(function(err, chunk)
 			assert(not err, err)
 			if chunk then
-				args.callback(client, chunk)
+				local success, err = pcall(args.callback, client, chunk)
+				if not success then
+					client:write("Internal server error:" .. err .. "\n")
+				end
 			else
 				client:shutdown()
 				client:close()
@@ -28,11 +33,8 @@ function M.create_server(args)
 		end)
 	end)
 
-	if args.komorebi then
-		io.write("Listening for Komorebi events at: ", args.pipe_name, "\n")
-		io.popen("komorebic subscribe " .. args.pipe_name)
-	else
-		io.write("Outputting status to: ", args.pipe_name, "\n")
+	if args.prerun then
+		args.prerun()
 	end
 end
 

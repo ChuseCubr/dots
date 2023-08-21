@@ -1,15 +1,37 @@
+/*
+
+Rose-pine colorscheme
+
+Base:           #191724
+Surface:        #1f1d2e
+Overlay:        #26233a
+Muted:          #6e6a86
+Subtle:         #908caa
+Text:           #e0def4
+Love:           #eb6f92
+Gold:           #f6c177
+Rose:           #ebbcba
+Pine:           #31748f
+Foam:           #9ccfd8
+Iris:           #c4a7e7
+Highlight Low:  #21202e
+Highlight Med:  #403d52
+Highlight High: #524f67
+
+*/
+
 * {
-    /* Bar measurement icons: https://github.com/and3rson/graph-bars-font */
-    /* Icon set: https://fontawesome.com/v5.15/how-to-use/on-the-desktop/setup/getting-started */
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    color: rgb(224, 222, 244);
+  /* Bar measurement icons: https://github.com/and3rson/graph-bars-font */
+  /* Icon set: https://fontawesome.com/v5.15/how-to-use/on-the-desktop/setup/getting-started */
+  font-family: 'Segoe UI';
+  font-size: 14px;
+  color: #e0def4; /* Text */
 }
 
 .bar {
-    background: rgb(31, 29, 46);
-    border-bottom: 2px solid rgb(64, 61, 82);
-    padding: 0 5px;
+  background: #1f1d2e; /* Surface */
+  border-bottom: 2px solid #403d52; /* Highlight Med */
+  padding: 0 5px;
 }
 
 .komorebi-workspaces {
@@ -17,44 +39,123 @@
 }
 
 .ws-btn {
-    padding: 5px 10px;
-    margin: 2px 1px;
-    font-size: 12px;
-    border: 0;
+  color: #31748f;
+  font-size: 12px;
+  padding: 5px 8px;
+  margin: 2px 1px;
+  border: 0;
 }
 
 .ws-btn:hover {
-    background: rgb(82, 79, 103);
-    font-weight: bold;
+  color: #9ccfd8; /* Foam */
+  background: #524f67; /* Highlight High */
 }
 
 .ws-btn.populated {
-    background: rgb(64, 61, 82);
+  color: #ebbcba; /* Rose */
+  color: #9ccfd8; /* Foam */
+  background: #403d52; /* Highlight Med */
 }
 
 .ws-btn.active {
-    background: rgb(144, 140, 170);
-    color: rgb(25, 23, 36);
+  background: #908caa; /* Subtle */
+  color: #191724; /* Base */
+}
+
+.custom-widget.active-icon .label {
+  color: #c4a7e7; /* Iris */
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 24px;
+  padding-left: 5px;
+  padding-right: 0px;
 }
 
 .active-window-widget .label {
-  padding: -5px 7px 0 7px;
+  color: #c4a7e7; /* Iris */
+  padding: -5px 10px 0 0px;
   margin-bottom: -1px;
   margin: 2px;
 }
 
-.custom-widget.komorebi-stack .label {
-  color: rgb(156, 207, 216);
-  font-family: 'Wingdings';
-  font-size: 14pt;
+.custom-widget.date-icon .label {
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 24px;
+  padding-left: 0px;
+  padding-right: 5px;
 }
 
-.custom-widget.komorebi-monocle .label {
-  color: rgb(196, 167, 231);
-  font-family: 'Wingdings';
-  font-size: 14pt;
+.custom-widget.clock-icon .label {
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 24px;
+  padding-left: 10px;
+  padding-right: 5px;
 }
 
 .clock-widget .label {
-  margin: 0px 5px;
+  padding-top: -5px;
+}
+
+.custom-widget.komorebi-active-window-status .label {
+  color: #9ccfd8; /* Foam */
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 18pt;
+}
+
+.custom-widget.cpu-icon .label {
+  color: #f6c177; /* Gold */
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 24px;
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+.cpu-widget .label {
+  color: #f6c177; /* Gold */
+  padding-top: -5px;
+  padding-left: 0px;
+  padding-right: 7px;
+}
+
+.custom-widget.ram-icon .label {
+  color: #c4a7e7; /* Iris */
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 24px;
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+.memory-widget .label {
+  color: #c4a7e7; /* Iris */
+  padding-top: -5px;
+  padding-left: 0px;
+  padding-right: 7px;
+}
+
+.custom-widget.bat-icon .label {
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 14px;
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+.custom-widget.bat-icon .label {
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 14px;
+  padding-left: 5px;
+  padding-right: 0px;
+  color: #9ccfd8; /* Foam */
+}
+
+.battery-widget .label {
+  padding-top: -5px;
+  padding-left: 0px;
+  padding-right: 7px;
+  color: #9ccfd8; /* Foam */
+}
+
+.custom-widget.komorebi-restart .label {
+  font-family: 'FantasqueSansM Nerd Font Mono';
+  font-size: 18pt;
+  padding-right: 5px;
+  color: #eb6f92; /* Love */
 }

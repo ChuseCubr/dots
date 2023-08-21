@@ -1,58 +1,42 @@
 #!nvim.exe --clean --headless -l
 
-local uv = vim.loop
-
 local PIPE_NAME = "komorebi_status"
-local QUERY = "stack"
-local DEFAULT = {
-	label = "",
-	label_alt = "",
+local COMMAND = "ping"
+
+local PARAMS = {
+	pipe_name = "string",
+	command = "string",
 }
 
-for _, v in ipairs(vim.v.argv) do
-	local path, _query, c
+local DEFAULT = vim.json.encode({
+	label = "",
+	label_alt = "",
+})
 
-	path, c = string.gsub(v, "%-%-pipe=", "")
-	if c == 1 then
-		PIPE_NAME = path
-		goto continue
+local SCRIPT_PATH = vim.v.argv[5]
+SCRIPT_PATH = vim.fs.normalize(vim.fn.fnamemodify(SCRIPT_PATH, ":h"))
+package.path = package.path .. ";" .. SCRIPT_PATH .. "/?.lua"
+
+local client = require("client-factory")
+local cli = require("cli")
+local uv = vim.loop
+
+local function main()
+	local args = cli.parse(vim.v.argv, PARAMS)
+	if args.pipe_name then
+		PIPE_NAME = args.pipe_name
+	end
+	if args.command then
+		COMMAND = args.command
 	end
 
-	_query, c = string.gsub(v, "%-%-query=", "")
-	if c == 1 then
-		QUERY = _query
-	end
+	client.create_client({
+		pipe_name = PIPE_NAME,
+		query = COMMAND,
+		default = DEFAULT,
+	})
 
-	::continue::
+	uv.run("default")
 end
 
-local PIPE_PATH = "\\\\.\\pipe\\" .. PIPE_NAME
-
-local function assert(value, _)
-	if value then
-		return value
-	end
-	io.write(vim.json.encode(DEFAULT))
-	os.exit(0)
-end
-
-local client = assert(uv.new_pipe(false))
-client:connect(PIPE_PATH, function(err)
-	assert(not err, err)
-	client:read_start(function(err, chunk)
-		assert(not err, err)
-		if chunk then
-			io.write(chunk)
-			client:shutdown()
-			client:close()
-			os.exit(0)
-		else
-			client:shutdown()
-			client:close()
-		end
-	end)
-
-	client:write(QUERY)
-end)
-
-uv.run("default")
+main()

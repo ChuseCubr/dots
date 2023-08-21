@@ -1,25 +1,42 @@
 local M = {}
 
--- Get focused monitor/workspace/container using focused index queries.
-function M.get_focused(object, name)
-	local collection = object[name .. "s"].elements
-	local collection_not_empty = #collection > 0
-	assert(collection_not_empty, name .. " collection is empty")
+function M.get_status(state)
+	local status = {
+		floating = false,
+		stacked = false,
+		monocle = false,
+		maximized = false,
+	}
 
-	if #collection == 1 then
-		return collection[1]
+	local monitor = state.monitors.elements[state.monitors.focused + 1]
+	local workspace = monitor.workspaces.elements[monitor.workspaces.focused + 1]
+
+	if workspace.floating_windows ~= vim.NIL and #workspace.floating_windows > 0 then
+		status.floating = true
 	end
 
-	local command = "komorebic query focused-" .. name .. "-index"
-	local handle = assert(io.popen(command))
-	local index = assert(handle:read("*n")) + 1
+	if #workspace.containers.elements > 0 then
+		local container = workspace.containers.elements[workspace.containers.focused + 1]
+		if container and #container.windows.elements > 1 then
+			status.stacked = true
+		end
+	end
 
-	return collection[index]
+	if workspace.monocle_container ~= vim.NIL then
+		status.monocle = true
+	end
+
+	if workspace.maximized_window ~= vim.NIL then
+		status.maximized = true
+	end
+
+	return status
 end
 
+-- alternatives for individual status
 function M.get_workspace(state)
-	local monitor = M.get_focused(state, "monitor")
-	local workspace = M.get_focused(monitor, "workspace")
+	local monitor = state.monitors.elements[state.monitors.focused + 1]
+	local workspace = monitor.workspaces.elements[monitor.workspaces.focused + 1]
 	return workspace
 end
 
@@ -41,9 +58,9 @@ function M.floating(state)
 	return #workspace.floating_windows > 0
 end
 
-function M.stack(state)
+function M.stacked(state)
 	local workspace = M.get_workspace(state)
-	local container = M.get_focused(workspace, "container")
+	local container = workspace.containers.elements[workspace.containers.focused + 1]
 	return #container.windows.elements > 1
 end
 

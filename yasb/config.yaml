@@ -25,49 +25,96 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left:   ["komorebi_workspaces"]
-      center: ["active_window"]
-      right:  ["komorebi_stack", "komorebi_monocle", "clock"]
+      left:   ["komorebi_workspaces", "active_icon", "active_window"]
+      center: ["date_icon", "date", "clock_icon", "clock"]
+      right:  ["komorebi_active_window_status", "cpu_icon", "cpu", "memory_icon", "memory", "battery_icon", "battery", "komorebi_restart"]
 
 widgets:
+  komorebi_workspaces:
+    type: "komorebi.workspaces.WorkspaceWidget"
+    options:
+        label_offline: "Komorebi Offline"
+        label_workspace_btn: "{name}"
+        label_default_name: "{name}"
+        label_zero_index: false
+        hide_empty_workspaces: false
+
+  active_icon:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "\ueba2"
+      label_alt: "\ueba2"
+      class_name: "active-icon"
+      exec_options:
+        run_once: true
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "exec cmd /c taskmgr"
+
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
       label: "{win[title]}"
       label_no_window: ""
-      max_length: 48
+      max_length: 30
       max_length_ellipsis: "..."
       monitor_exclusive: true
       callbacks:
-          on_left: "do_nothing"
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "exec cmd /c taskmgr"
 
-  clock:
+  date_icon:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "\uf073"
+      label_alt: "\uf073"
+      class_name: "date-icon"
+      exec_options:
+        run_once: true
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+
+  date:
     type: "yasb.clock.ClockWidget"
     options:
-        label: "{%a %b %d  %H:%M}"
+        label: "{%a %b %d}"
         timezones: ["Asia/Manila"]
         callbacks:
           on_left: "do_nothing"
 
-  komorebi_workspaces:
-    type: "komorebi.workspaces.WorkspaceWidget"
-    options:
-        label_offline: "Komorebi Offline"
-        label_workspace_btn: "{index}"
-        label_default_name: "{index}"
-        label_zero_index: false
-        hide_empty_workspaces: false
-
-  komorebi_stack:
+  clock_icon:
     type: yasb.custom.CustomWidget
     options:
-      label: "{data[stack][label]}"
-      label_alt: "{data[stack][label_alt]}"
-      label: "{data[stack][label]}"
-      label_alt: "{data[stack][label_alt]}"
-      class_name: "komorebi-stack"
+      label: "\uf43a"
+      label_alt: "\uf43a"
+      class_name: "clock-icon"
       exec_options:
-        run_cmd: "nvim.exe --clean -l C:/Users/chase/.yasb/komorebi_state.lua --query"
+        run_once: true
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+        label: "{%H:%M}"
+        timezones: ["Asia/Manila"]
+        callbacks:
+          on_left: "do_nothing"
+
+  komorebi_active_window_status:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label_alt]}"
+      class_name: "komorebi-active-window-status"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l C:/Users/chase/.yasb/komorebi_state/client.lua"
         run_interval: 1000
         return_format: "json"
       callbacks:
@@ -75,14 +122,101 @@ widgets:
         on_middle: "do_nothing"
         on_right: "do_nothing"
 
-  komorebi_monocle:
+  cpu_icon:
     type: yasb.custom.CustomWidget
     options:
-      label: "{data[monocle][label]}"
-      label_alt: "{data[monocle][label_alt]}"
-      class_name: "komorebi-monocle"
+      label: "\uf4bc"
+      label_alt: "\uf4bc"
+      class_name: "cpu-icon"
       exec_options:
-        run_cmd: "nvim.exe --clean -l C:/Users/chase/.yasb/komorebi_state.lua"
+        run_once: true
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "exec cmd /c taskmgr"
+
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "CPU: {info[percent][total]}%"
+      label_alt: "CPU: {info[percent][total]}%"
+      update_interval: 1000
+      histogram_icons:
+        - '\u2581' # 0%
+        - '\u2581' # 10%
+        - '\u2582' # 20%
+        - '\u2583' # 30%
+        - '\u2584' # 40%
+        - '\u2585' # 50%
+        - '\u2586' # 60%
+        - '\u2587' # 70%
+        - '\u2588' # 80%+
+      histogram_num_columns: 0
+      callbacks:
+        on_right: "exec cmd /c taskmgr"
+
+  memory_icon:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "\ue266"
+      label_alt: "\ue266"
+      class_name: "ram-icon"
+      exec_options:
+        run_once: true
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "exec cmd /c taskmgr"
+
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "RAM: {virtual_mem_percent}%"
+      label_alt: "RAM: {virtual_mem_free}"
+      update_interval: 5000
+      callbacks:
+        on_right: "exec cmd /c taskmgr"
+
+  battery_icon:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "\udb84\udea2"
+      label_alt: "\udb84\udea2"
+      class_name: "bat-icon"
+      exec_options:
+        run_once: true
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "exec cmd /c taskmgr"
+
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "{percent}%"
+      time_remaining_natural: true
+
+  komorebi_restart:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "\u23fb"
+      label_alt: "\u23fb"
+      class_name: "komorebi-restart"
+      exec_options:
+        run_once: true
+      callbacks:
+        on_left: "exec cmd /c schtasks /run /tn WMRestart"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+
+  test_thing:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label]}"
+      class_name: "komorebi-test"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l C:/Users/chase/.yasb/test.lua"
         run_interval: 1000
         return_format: "json"
       callbacks:
