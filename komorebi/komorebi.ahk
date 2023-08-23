@@ -16,13 +16,22 @@ SetWorkingDir A_ScriptDir
 !^+u::RunWait "komorebic stack up",, "Hide"
 !^+i::RunWait "komorebic stack right",, "Hide"
 
-!l::RunWait "komorebic cycle-workspace previous",, "Hide"
-!y::RunWait "komorebic cycle-workspace next",, "Hide"
-!+l::RunWait "komorebic cycle-move-to-workspace previous",, "Hide"
-!+y::RunWait "komorebic cycle-move-to-workspace next",, "Hide"
+; !^n::RunWait "komorebic cycle-stack previous",, "Hide"
+; !^i::RunWait "komorebic cycle-stack next",, "Hide"
 
-!^n::RunWait "komorebic cycle-stack previous",, "Hide"
-!^i::RunWait "komorebic cycle-stack next",, "Hide"
+; !l::RunWait "komorebic cycle-workspace previous",, "Hide"
+; !y::RunWait "komorebic cycle-workspace next",, "Hide"
+; !+l::RunWait "komorebic cycle-move-to-workspace previous",, "Hide"
+; !+y::RunWait "komorebic cycle-move-to-workspace next",, "Hide"
+
+!Tab::RunWait "komorebic cycle-stack next",, "Hide"
+!+Tab::RunWait "komorebic cycle-stack previous",, "Hide"
+
+!^n::RunWait "komorebic cycle-workspace previous",, "Hide"
+!^i::RunWait "komorebic cycle-workspace next",, "Hide"
+!^u::RunWait "komorebic cycle-move-to-workspace previous",, "Hide"
+!^e::RunWait "komorebic cycle-move-to-workspace next",, "Hide"
+
 !a::RunWait "komorebic unstack",, "Hide"
 
 !m::RunWait "komorebic minimize",, "Hide"
