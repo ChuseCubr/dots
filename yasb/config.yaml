@@ -118,9 +118,12 @@ widgets:
         run_interval: 1000
         return_format: "json"
       callbacks:
-        on_left: "toggle_label"
-        on_middle: "do_nothing"
-        on_right: "do_nothing"
+        # on_left: "do_nothing"
+        # on_middle: "do_nothing"
+        # on_right: "do_nothing"
+        on_left: "exec cmd /c {data[on_left]}"
+        on_middle: "exec cmd /c {data[on_middle]}"
+        on_right: "exec cmd /c {data[on_right]}"
 
   cpu_icon:
     type: yasb.custom.CustomWidget
