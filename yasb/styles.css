@@ -39,6 +39,7 @@ Highlight High: #524f67
 }
 
 .ws-btn {
+  /* Pine */
   color: #31748f;
   font-size: 12px;
   padding: 5px 8px;
@@ -47,23 +48,29 @@ Highlight High: #524f67
 }
 
 .ws-btn:hover {
-  color: #9ccfd8; /* Foam */
-  background: #524f67; /* Highlight High */
+  /* Foam */
+  color: #9ccfd8;
+  /* Highlight High */
+  background: #524f67;
 }
 
 .ws-btn.populated {
-  color: #ebbcba; /* Rose */
-  color: #9ccfd8; /* Foam */
-  background: #403d52; /* Highlight Med */
+  /* Foam */
+  color: #9ccfd8;
+  /* Highlight Med */
+  background: #403d52;
 }
 
 .ws-btn.active {
-  background: #908caa; /* Subtle */
-  color: #191724; /* Base */
+  /* Subtle */
+  background: #908caa;
+  /* Base */
+  color: #191724;
 }
 
 .custom-widget.active-icon .label {
-  color: #c4a7e7; /* Iris */
+  /* Iris */
+  color: #c4a7e7;
   font-family: 'FantasqueSansM Nerd Font Mono';
   font-size: 24px;
   padding-left: 5px;
@@ -71,7 +78,8 @@ Highlight High: #524f67
 }
 
 .active-window-widget .label {
-  color: #c4a7e7; /* Iris */
+  /* Iris */
+  color: #c4a7e7;
   padding: -5px 10px 0 0px;
   margin-bottom: -1px;
   margin: 2px;
@@ -96,28 +104,32 @@ Highlight High: #524f67
 }
 
 .custom-widget.komorebi-active-window-status .label {
-  color: #9ccfd8; /* Foam */
+  /* Foam */
+  color: #9ccfd8;
   font-family: 'FantasqueSansM Nerd Font Mono';
-  font-size: 18pt;
+  font-size: 14pt;
 }
 
 .custom-widget.cpu-icon .label {
-  color: #f6c177; /* Gold */
+  /* Gold */
+  color: #f6c177;
   font-family: 'FantasqueSansM Nerd Font Mono';
   font-size: 24px;
-  padding-left: 5px;
+  padding-left: 15px;
   padding-right: 0px;
 }
 
 .cpu-widget .label {
-  color: #f6c177; /* Gold */
+  /* Gold */
+  color: #f6c177;
   padding-top: -5px;
   padding-left: 0px;
   padding-right: 7px;
 }
 
 .custom-widget.ram-icon .label {
-  color: #c4a7e7; /* Iris */
+  /* Iris */
+  color: #c4a7e7;
   font-family: 'FantasqueSansM Nerd Font Mono';
   font-size: 24px;
   padding-left: 5px;
@@ -125,7 +137,8 @@ Highlight High: #524f67
 }
 
 .memory-widget .label {
-  color: #c4a7e7; /* Iris */
+  /* Iris */
+  color: #c4a7e7;
   padding-top: -5px;
   padding-left: 0px;
   padding-right: 7px;
@@ -139,23 +152,26 @@ Highlight High: #524f67
 }
 
 .custom-widget.bat-icon .label {
+  /* Foam */
+  color: #9ccfd8;
   font-family: 'FantasqueSansM Nerd Font Mono';
   font-size: 14px;
   padding-left: 5px;
   padding-right: 0px;
-  color: #9ccfd8; /* Foam */
 }
 
 .battery-widget .label {
+  /* Foam */
+  color: #9ccfd8;
   padding-top: -5px;
   padding-left: 0px;
   padding-right: 7px;
-  color: #9ccfd8; /* Foam */
 }
 
 .custom-widget.komorebi-restart .label {
+  /* Love */
+  color: #eb6f92;
   font-family: 'FantasqueSansM Nerd Font Mono';
   font-size: 18pt;
   padding-right: 5px;
-  color: #eb6f92; /* Love */
 }

@@ -1,3 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = http://github.com/chusecubr/nvim-config
+[submodule "yasb/komorebi_indicator"]
+	path = yasb/komorebi_indicator
+	url = git@github.com:ChuseCubr/yasb-komorebi-indicator

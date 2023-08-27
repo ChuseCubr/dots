@@ -1,5 +1,5 @@
-watch_stylesheet: false
-watch_config: false
+watch_stylesheet: true
+watch_config: true
 
 bars:
   yasb-bar:
@@ -27,7 +27,10 @@ bars:
     widgets:
       left:   ["komorebi_workspaces", "active_icon", "active_window"]
       center: ["date_icon", "date", "clock_icon", "clock"]
-      right:  ["komorebi_active_window_status", "cpu_icon", "cpu", "memory_icon", "memory", "battery_icon", "battery", "komorebi_restart"]
+      # right:  ["cpu_icon", "cpu", "memory_icon", "memory", "battery_icon", "battery", "komorebi_restart"]
+      # right:  ["komorebi_active_window_status", "cpu_icon", "cpu", "memory_icon", "memory", "battery_icon", "battery", "komorebi_restart"]
+      # right:  ["komorebi_active_window_statuses", "cpu_icon", "cpu", "memory_icon", "memory", "battery_icon", "battery", "komorebi_restart"]
+      right:  ["komorebi_floating", "komorebi_stacked", "komorebi_monocle", "komorebi_maximized", "cpu_icon", "cpu", "memory_icon", "memory", "battery_icon", "battery", "komorebi_restart"]
 
 widgets:
   komorebi_workspaces:
@@ -114,13 +117,85 @@ widgets:
       label_alt: "{data[label_alt]}"
       class_name: "komorebi-active-window-status"
       exec_options:
-        run_cmd: "nvim.exe --clean --headless -l C:/Users/chase/.yasb/komorebi_state/client.lua"
+        run_cmd: "nvim.exe --clean --headless -l %userprofile%/.yasb/komorebi_indicator/lua/client.lua --command=status"
         run_interval: 1000
         return_format: "json"
       callbacks:
-        # on_left: "do_nothing"
-        # on_middle: "do_nothing"
-        # on_right: "do_nothing"
+        on_left: "exec cmd /c {data[on_left]}"
+        on_middle: "exec cmd /c {data[on_middle]}"
+        on_right: "exec cmd /c {data[on_right]}"
+
+  komorebi_active_window_statuses:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label_alt]}"
+      class_name: "komorebi-active-window-status"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l %USERPROFILE%/.yasb/komorebi_indicator/lua/client.lua --command=statuses"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
+        on_left: "exec cmd /c {data[on_left]}"
+        on_middle: "exec cmd /c {data[on_middle]}"
+        on_right: "exec cmd /c {data[on_right]}"
+
+  komorebi_monocle:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label_alt]}"
+      class_name: "komorebi-active-window-status"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l %USERPROFILE%/.yasb/komorebi_indicator/lua/client.lua --command=monocle"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
+        on_left: "exec cmd /c {data[on_left]}"
+        on_middle: "exec cmd /c {data[on_middle]}"
+        on_right: "exec cmd /c {data[on_right]}"
+
+  komorebi_maximized:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label_alt]}"
+      class_name: "komorebi-active-window-status"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l %USERPROFILE%/.yasb/komorebi_indicator/lua/client.lua --command=maximized"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
+        on_left: "exec cmd /c {data[on_left]}"
+        on_middle: "exec cmd /c {data[on_middle]}"
+        on_right: "exec cmd /c {data[on_right]}"
+
+  komorebi_floating:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label_alt]}"
+      class_name: "komorebi-active-window-status"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l %USERPROFILE%/.yasb/komorebi_indicator/lua/client.lua --command=floating"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
+        on_left: "exec cmd /c {data[on_left]}"
+        on_middle: "exec cmd /c {data[on_middle]}"
+        on_right: "exec cmd /c {data[on_right]}"
+
+  komorebi_stacked:
+    type: yasb.custom.CustomWidget
+    options:
+      label: "{data[label]}"
+      label_alt: "{data[label_alt]}"
+      class_name: "komorebi-active-window-status"
+      exec_options:
+        run_cmd: "nvim.exe --clean --headless -l %USERPROFILE%/.yasb/komorebi_indicator/lua/client.lua --command=stacked"
+        run_interval: 1000
+        return_format: "json"
+      callbacks:
         on_left: "exec cmd /c {data[on_left]}"
         on_middle: "exec cmd /c {data[on_middle]}"
         on_right: "exec cmd /c {data[on_right]}"
@@ -219,7 +294,7 @@ widgets:
       label_alt: "{data[label]}"
       class_name: "komorebi-test"
       exec_options:
-        run_cmd: "nvim.exe --clean --headless -l C:/Users/chase/.yasb/test.lua"
+        run_cmd: "nvim.exe --clean --headless -l %USERPROFILE%/.yasb/test.lua"
         run_interval: 1000
         return_format: "json"
       callbacks:
