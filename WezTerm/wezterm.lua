@@ -8,6 +8,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.line_height = 1.1
 config.font = wezterm.font("FantasqueSansM Nerd Font Mono")
 config.font_size = 16
 config.colors = colors
