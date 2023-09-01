@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+source "$HOME/.config/zellij/zellij-launcher"
+
+# Where to fuzzy search when creating a new session
+ZELLIJ_SESSIONIZER_DIRS="$PWD $HOME/repos $HOME/.config /mnt/d/repos /mnt/d/y3t1"
+
+# # How deep to fuzzy search
+# ZELLIJ_SESSIONIZER_MIN_DIR_DEPTH=0
+# ZELLIJ_SESSIONIZER_MAX_DIR_DEPTH=2
+
+# # fzf settings
+# ZELLIJ_SESSIONIZER_FZF_OPTS="--layout=reverse --inline-info --border --header-first --cycle"
+
+# # Pretty header
+# ZELLIJ_SESSIONIZER_HEADER="  ____      _____   _   ___
+#  /_  / ___ / / (_) (_) / _ \__ _____  ___  ___ ____
+#   / /_/ -_) / / / / / / , _/ // / _ \/ _ \/ -_) __/
+#  /___/\__/_/_/_/_/ / /_/|_|\_,_/_//_/_//_/\__/_/
+#               |___/ "
