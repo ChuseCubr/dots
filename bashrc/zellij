@@ -1,20 +1,63 @@
 #!/usr/bin/env bash
 
-source "$HOME/.config/zellij/zellij-launcher"
+source "$HOME/.config/zellij/launcher/zellij-launcher"
 
-# Where to fuzzy search when creating a new session
-ZELLIJ_SESSIONIZER_DIRS="$PWD $HOME/repos $HOME/.config /mnt/d/repos /mnt/d/y3t1"
+# Space separated list of the different main menu options.
+# This default includes all options.
+ZELLIJ_LAUNCHER_MENU="kill reload exit sessions locations"
 
-# # How deep to fuzzy search
-# ZELLIJ_SESSIONIZER_MIN_DIR_DEPTH=0
-# ZELLIJ_SESSIONIZER_MAX_DIR_DEPTH=2
+# If your menu includes actions (create, kill, reload, exit),
+# they will be prepended with this string for clarity.
+ZELLIJ_LAUNCHER_ACTION_PREFIX="$ "
 
-# # fzf settings
-# ZELLIJ_SESSIONIZER_FZF_OPTS="--layout=reverse --inline-info --border --header-first --cycle"
+# Space separated string of directories to search when creating a new session.
+# Use $HOME instead of ~ and \$PWD instead of $PWD.
+ZELLIJ_LAUNCHER_DIRS="\$PWD $HOME/repos $HOME/.config /mnt/d/repos /mnt/d/y3t1"
 
-# # Pretty header
-# ZELLIJ_SESSIONIZER_HEADER="  ____      _____   _   ___
-#  /_  / ___ / / (_) (_) / _ \__ _____  ___  ___ ____
-#   / /_/ -_) / / / / / / , _/ // / _ \/ _ \/ -_) __/
-#  /___/\__/_/_/_/_/ / /_/|_|\_,_/_//_/_//_/\__/_/
-#               |___/ "
+# Minimum search depth (find -mindepth)
+ZELLIJ_LAUNCHER_MIN_DIR_DEPTH=0
+
+# Maximum search depth (find -maxdepth)
+ZELLIJ_LAUNCHER_MAX_DIR_DEPTH=3
+
+# Opts to pass to fzf in case you don't like this layout
+ZELLIJ_LAUNCHER_FZF_OPTS="--layout=reverse --inline-info --border --header-first --cycle"
+
+# Let the user start a session even if already attached to one.
+# Be careful, you can break sessions if you recurse them!
+# For example: (main session > split > new session > attach to main session)
+ZELLIJ_LAUNCHER_ALLOW_NEST=1
+
+# If you open the launcher within an active Zellij session,
+# display the current session in the header/banner.
+# Only applies when ZELLIJ_LAUNCHER_ALLOW_NEST is enabled
+ZELLIJ_LAUNCHER_SHOW_CURRENT=1
+
+# When enabled, detaching from a session and not selecting anything
+# in the main menu will return you to your last attached session.
+# Enabling this option forcibly adds exit to the main menu.
+ZELLIJ_LAUNCHER_RETURN_TO_LAST=1
+
+# When enabled, only show the exit action in the main menu when there are no
+# recent sessions.
+# This setting only takes effect when ZELLIJ_LAUNCHER_RETURN_TO_LAST
+# is enabled.
+ZELLIJ_LAUNCHER_DYNAMIC_EXIT=0
+
+# Applied when selecting a folder in the main menu whose name is already an
+# active sessions.
+# If nested and the selected folder name is the attached session,
+# will automatically be set to rename.
+# Possible values: "attach" | "rename" | "ask"
+ZELLIJ_LAUNCHER_FOLDER_BEHAVIOR="ask"
+
+# Text always displayed in menus.
+# I recommend keeping this so Zellij gets exposure :)
+ZELLIJ_LAUNCHER_BANNER=" 
+███████╗███████╗██╗     ██╗     ██╗     ██╗
+╚══███╔╝██╔════╝██║     ██║     ██║     ██║
+  ███╔╝ █████╗  ██║     ██║     ██║     ██║
+ ███╔╝  ██╔══╝  ██║     ██║     ██║██   ██║
+███████╗███████╗███████╗███████╗██║╚█████╔╝
+╚══════╝╚══════╝╚══════╝╚══════╝╚═╝ ╚════╝ 
+ "
