@@ -1,5 +1,5 @@
 [submodule "nvim"]
-	path = nvim
+	path = lazyvim
 	url = http://github.com/chusecubr/nvim-config
 [submodule "yasb/komorebi_indicator"]
 	path = yasb/komorebi_indicator
