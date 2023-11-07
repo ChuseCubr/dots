@@ -15,13 +15,15 @@ config.font_size = 14
 config.font = wezterm.font({
 	family = 'Maple Mono NF',
 	harfbuzz_features = {
-		'cv01',
-		'cv02',
-		'cv04',
-		'ss01',
-		'ss03',
-		'ss04',
-		'ss04',
+		'cv01', -- disable @#$%... gaps
+		'cv02', -- curvier i
+		-- 'cv03', -- alternative a
+		'cv04', -- alternative @
+		'ss01', -- equals
+		-- 'ss02', -- [] status stuff
+		'ss03', -- __
+		'ss04', -- >= and <=
+		'ss04', -- {{ and }}
 	}
 })
 
