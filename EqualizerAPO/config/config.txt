@@ -1,0 +1,4 @@
+Device: Microphone USB Audio CODEC  {c3933d96-f5f2-46c4-9a90-3152cee07719}
+Include: q2u\config.txt
+Device: Microphone WO Mic Device {998ebeb3-effd-4e2e-a60e-4c097168d1ea}
+Include: phone\config.txt
