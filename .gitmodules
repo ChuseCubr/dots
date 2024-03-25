@@ -1,6 +1,6 @@
 [submodule "nvim"]
 	path = nvim
-	url = http://github.com/chusecubr/nvim-config
+	url = https://github.com/ChuseCubr/nvim-config
 [submodule "zellij/launcher"]
 	path = zellij/launcher
 	url = https://github.com/ChuseCubr/zellij-launcher
