@@ -13,7 +13,7 @@ function Invoke-Starship-PreCommand
 }
 try
 {
-  Invoke-Expression (&starship init powershell) 
+  Invoke-Expression (&starship init powershell)
 } catch
-{ 
+{
 }

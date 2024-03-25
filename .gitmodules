@@ -1,9 +1,6 @@
 [submodule "nvim"]
-	path = lazyvim
+	path = nvim
 	url = http://github.com/chusecubr/nvim-config
-[submodule "yasb/komorebi_indicator"]
-	path = yasb/komorebi_indicator
-	url = git@github.com:ChuseCubr/yasb-komorebi-indicator
 [submodule "zellij/launcher"]
 	path = zellij/launcher
 	url = https://github.com/ChuseCubr/zellij-launcher

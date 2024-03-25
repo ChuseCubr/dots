@@ -1,0 +1,1 @@
+$env:SCOOP = "D:\\scoop"
