@@ -56,4 +56,31 @@ set guifont=Iosevka_NFM_Medium:h16
 colorscheme habamax
 
 let mapleader="\<space>"
+let maplocalleader="\<space>"
 set shell=pwsh
+
+" temporary files
+set undofile
+set backup
+set swapfile
+
+if has("win32")
+	set undodir=$LOCALAPPDATA/vim-data/undo
+	set backupdir=$LOCALAPPDATA/vim-data/backup
+	set directory=$LOCALAPPDATA/vim-data/swap
+else
+	set undodir=$HOME/.local/share/vim/undo
+	set backupdir=$HOME/.local/share/vim/backup
+	set directory=$HOME/.local/share/vim/swap
+endif
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+	call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+	call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+	call mkdir(expand(&directory), "p")
+endif
