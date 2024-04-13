@@ -14,6 +14,7 @@ local font_configs = {
 		config = {
 			family = "Iosevka NFM Medium",
 			harfbuzz_features = {
+				"calt off",
 				-- "calt",
 				-- "dlig",
 			},
