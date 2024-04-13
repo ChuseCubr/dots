@@ -39,7 +39,6 @@ set shortmess+=I
 " ui elements
 set title
 set laststatus=3
-set guicursor=n-v-c-i:block
 set colorcolumn=80
 
 " gutter
@@ -52,12 +51,20 @@ set showbreak=>
 set list
 set listchars=tab:>\ ,trail:-,extends:»,precedes:«,nbsp:_
 
+" gvim stuff
+set guicursor=n-v-c-i:block
 set guifont=Iosevka_NFM_Medium:h16
-colorscheme habamax
+set belloff=all
+
+" gj/gk
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 
 let mapleader="\<space>"
 let maplocalleader="\<space>"
 set shell=pwsh
+
+colorscheme habamax
 
 " temporary files
 set undofile
