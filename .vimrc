@@ -52,8 +52,8 @@ set showbreak=>
 set list
 set listchars=tab:>\ ,trail:-,extends:»,precedes:«,nbsp:_
 
-set guifont=MapleMono\ NF:h14
-colorscheme slate
+set guifont=Iosevka_NFM_Medium:h16
+colorscheme habamax
 
 let mapleader="\<space>"
 set shell=pwsh
