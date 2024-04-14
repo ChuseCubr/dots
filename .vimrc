@@ -9,62 +9,27 @@ set ignorecase
 set smartcase
 set nohlsearch
 
+" file completions
 set wildmenu
 set path+=**
 
-" indent options
+" indent/line options
 set breakindent
 set noexpandtab
 set shiftwidth=2
 set tabstop=2
+set autoindent
+set linebreak
 
 set timeoutlen=300
 set mouse=a
 set scrolloff=5
 
-set linebreak
-
+set backspace=indent,eol,start
 set completeopt=menu,menuone,preview,noinsert,noselect
 
-set backspace=indent,eol,start
-set autoindent
-
-" UI SETTINGS
-" better colors (on supported terms)
-set termguicolors
-
-" Disable intro
-set shortmess+=I
-
-" ui elements
-set title
-set laststatus=3
-set colorcolumn=80
-
-" gutter
-set number
-set relativenumber
-set signcolumn=yes
-
-" white space characters
-set showbreak=>
-set list
-set listchars=tab:>\ ,trail:-,extends:»,precedes:«,nbsp:_
-
-" gvim stuff
-set guicursor=n-v-c-i:block
-set guifont=Iosevka_NFM_Medium:h16
-set belloff=all
-
-" gj/gk
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
-
-let mapleader="\<space>"
-let maplocalleader="\<space>"
 set shell=pwsh
-
-colorscheme habamax
+set noshelltemp
 
 " temporary files
 set undofile
@@ -91,3 +56,39 @@ endif
 if !isdirectory(expand(&directory))
 	call mkdir(expand(&directory), "p")
 endif
+
+" REMAPS
+" gj/gk
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
+let mapleader="\<space>"
+let maplocalleader="\<space>"
+
+" UI SETTINGS
+" better colors (on supported terms)
+set termguicolors
+colorscheme habamax
+
+" Disable intro
+set shortmess+=I
+
+" ui elements
+set title
+set laststatus=3
+set colorcolumn=80
+
+" gutter
+set number
+set relativenumber
+set signcolumn=yes
+
+" white space characters
+set showbreak=>
+set list
+set listchars=tab:>\ ,trail:-,extends:»,precedes:«,nbsp:_
+
+" gui stuff
+set guicursor=n-v-c-i:block
+set guifont=Iosevka_NFM_Medium:h16
+set belloff=all
