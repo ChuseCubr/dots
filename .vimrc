@@ -1,38 +1,51 @@
 " EDITOR SETTINGS
 set encoding=utf-8
-set autoread
-set undofile
+set nocompatible
+
 set updatetime=250
+set timeoutlen=300
+
+set scrolloff=5
+set mouse=a
+set backspace=indent,eol,start
 
 " search settings
 set ignorecase
 set smartcase
 set nohlsearch
-
-" file completions
-set wildmenu
-set path+=**
+set incsearch
 
 " indent/line options
-set breakindent
 set noexpandtab
 set shiftwidth=2
 set tabstop=2
 set autoindent
+set breakindent
 set linebreak
 
-set timeoutlen=300
-set mouse=a
-set scrolloff=5
-
-set backspace=indent,eol,start
-set completeopt=menu,menuone,preview,noinsert,noselect
-
+" shell
 set shell=pwsh
 set noshelltemp
 
+" file, completions, nav
+set autoread
 syntax on
 filetype on
+filetype plugin on
+filetype indent on
+
+set completeopt=menu,menuone,preview,noinsert,noselect
+set wildmenu
+set wildoptions=fuzzy,pum,tagfile
+set path+=**
+
+set csprg=gtags-cscope
+set omnifunc=syntaxcomplete#Complete
+
+" netrw
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_winsize=30
 
 " temporary files
 set undofile
@@ -102,5 +115,5 @@ set statusline+=%l:%c  " cursor position
 
 " gui stuff
 set guicursor=n-v-c-i:block
-set guifont=Iosevka_NFM_Medium:h16
+set guifont=Iosevka_NFM:h16
 set belloff=all
