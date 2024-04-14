@@ -31,6 +31,9 @@ set completeopt=menu,menuone,preview,noinsert,noselect
 set shell=pwsh
 set noshelltemp
 
+syntax on
+filetype on
+
 " temporary files
 set undofile
 set backup
@@ -68,7 +71,7 @@ let maplocalleader="\<space>"
 " UI SETTINGS
 " better colors (on supported terms)
 set termguicolors
-colorscheme habamax
+colorscheme sorbet
 
 " Disable intro
 set shortmess+=I
@@ -87,6 +90,15 @@ set signcolumn=yes
 set showbreak=>
 set list
 set listchars=tab:>\ ,trail:-,extends:»,precedes:«,nbsp:_
+
+" statusline
+set laststatus=2
+set statusline=
+set statusline+=%n:\   " buffer number
+set statusline+=%f%m%r " file info
+set statusline+=%=     " right align
+set statusline+=%p%%\  " file progress
+set statusline+=%l:%c  " cursor position
 
 " gui stuff
 set guicursor=n-v-c-i:block
