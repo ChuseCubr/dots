@@ -5,7 +5,6 @@ set nocompatible
 set updatetime=250
 set timeoutlen=300
 
-set scrolloff=5
 set mouse=a
 set backspace=indent,eol,start
 
@@ -86,8 +85,8 @@ let maplocalleader="\<space>"
 set termguicolors
 colorscheme sorbet
 
-" Disable intro
-set shortmess+=I
+set shortmess-=S
+set shortmess+=CF
 
 " ui elements
 set title
