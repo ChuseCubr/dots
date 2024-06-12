@@ -1,0 +1,19 @@
+{
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vscode-neovim.neovimClean": true,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingComments": "never",
+    "editor.autoClosingDelete": "never",
+    "editor.autoClosingOvertype": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoIndent": "none",
+    "editor.autoSurround": "never",
+    "editor.fontFamily": "'IosevkaTerm NFM', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 24,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.trimAutoWhitespace": false,
+    "explorer.autoReveal": false
+}
