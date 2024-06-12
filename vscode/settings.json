@@ -8,12 +8,63 @@
     "editor.autoClosingDelete": "never",
     "editor.autoClosingOvertype": "never",
     "editor.autoClosingQuotes": "never",
-    "editor.autoIndent": "none",
+    "editor.autoIndent": "keep",
     "editor.autoSurround": "never",
+    "editor.bracketPairColorization.enabled": false,
     "editor.fontFamily": "'IosevkaTerm NFM', Consolas, 'Courier New', monospace",
     "editor.fontSize": 24,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "trailing",
     "editor.trimAutoWhitespace": false,
-    "explorer.autoReveal": false
+    "explorer.autoReveal": false,
+    "editor.tokenColorCustomizations": {
+        "[Default Dark Modern]": {
+            "comments": "#f4d88c",
+            "functions": "#d7dae1",
+            "keywords": "#9fd8ff",
+            "numbers": "#d7dae1",
+            "strings": "#aaedb7",
+            "types": "#9b9ea4",
+            "variables": "#d7dae1",
+            "textMateRules": [
+                {
+                    "scope": "punctuation",
+                    "settings": {
+                        "foreground": "#9b9ea4"
+                    }
+                }
+            ]
+        }
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "[Default Dark Modern]": {
+            "rules": {
+                "variable": "#d7dae1",
+                "class": "#9b9ea4",
+                "comment": "#f4d88c",
+                "decorator": "#9b9ea4",
+                "enum": "#d7dae1",
+                "enumMember": "#d7dae1",
+                "event": "#d7dae1",
+                "function": "#d7dae1",
+                "interface": "#d7dae1",
+                "keyword": "#9fd8ff",
+                "label": "#d7dae1",
+                "macro": "#d7dae1",
+                "method": "#d7dae1",
+                "namespace": "#9b9ea4",
+                "number": "#d7dae1",
+                "operator": "#9b9ea4",
+                "parameter": "#d7dae1",
+                "property": "#d7dae1",
+                "regexp": "#aaedb7",
+                "string": "#aaedb7",
+                "struct": "#d7dae1",
+                "type": "#9b9ea4",
+                "typeParameter": "#9b9ea4",
+                "other": "#d7dae1",
+            }
+        },
+    },
 }
