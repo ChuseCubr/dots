@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
-local colors = require("lua/rose-pine").colors()
+local colors = require("lua/neovim").colors()
 -- local colors = wezterm.color.load_scheme("vscode-dark.toml")
-local window_frame = require("lua/rose-pine").window_frame()
+local window_frame = require("lua/neovim").window_frame()
 
 local config = {}
 
@@ -12,7 +12,7 @@ end
 local font_configs = {
 	iosevka = {
 		config = {
-			family = "Iosevka NFM Medium",
+			family = "IosevkaTerm NFM",
 			harfbuzz_features = {
 				"calt off",
 				-- "calt",
@@ -20,9 +20,21 @@ local font_configs = {
 			},
 		},
 		size = 16,
-		line_height = 1.0,
+		line_height = 1.00,
 	},
-	monaspace = {
+	jetbrains = {
+		config = {
+			family = "JetBrainsMono NFM",
+			harfbuzz_features = {
+				"calt off",
+				-- "calt",
+				-- "dlig",
+			},
+		},
+		size = 14,
+		line_height = 1.07,
+	},
+	monaspace_ne = {
 		config = {
 			family = "MonaspiceNe NFM",
 			harfbuzz_features = {
@@ -40,6 +52,25 @@ local font_configs = {
 		},
 		size = 14,
 		line_height = 1.0,
+	},
+	monaspace_rn = {
+		config = {
+			family = "MonaspiceRn NFM",
+			harfbuzz_features = {
+				-- "ss01",
+				-- "ss02",
+				-- "ss03",
+				-- "ss04",
+				-- "ss05",
+				-- "ss06",
+				-- "ss07",
+				-- "ss08",
+				-- "dlig",
+				-- "calt",
+			},
+		},
+		size = 14,
+		line_height = 1.2,
 	},
 	maple_mono = {
 		config = {
