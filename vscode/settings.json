@@ -67,4 +67,8 @@
             }
         },
     },
+		"terminal.integrated.fontSize": 20,
+    "vim.handleKeys": {
+        "<C-p>": false
+    },
 }
