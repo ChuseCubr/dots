@@ -1,0 +1,7 @@
+VSTPlugin: Library rnnoise_stereo.dll ChunkData "VkMyIdEAAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29kaW5nPSJVVEYtOCI/PiA8Uk5Ob2lzZT48UEFSQU0gaWQ9InZhZF9ncmFjZV9wZXJpb2QiIHZhbHVlPSIyMC4wIi8+PFBBUkFNIGlkPSJ2YWRfcmV0cm9hY3RpdmVfZ3JhY2VfcGVyaW9kIiB2YWx1ZT0iMC4wIi8+PFBBUkFNIGlkPSJ2YWRfdGhyZXNob2xkIiB2YWx1ZT0iMC44NDk5OTk5NjQyMzcyMTMxIi8+PC9STk5vaXNlPgA="
+Include: preEQ.txt
+VSTPlugin: Library reagate-standalone.dll SignIn 0 Thresh 0.0630957 Hold 0.05 Hipass 0.003 Pre-open 0 Attack 0.002 Release 0.04 Lowpass 0.6 AudIn 0 Dry 3.16228e-8 Wet 1 Noise 3.16228e-8 Hystrsis 0.177828 PreviewF 0 "RMS size" 0 Usemidi 0 MidiNote 0.543307 MidiChan 0 InvrtWet 0
+VSTPlugin: Library reacomp-standalone.dll SignIn 0 Thresh 0.0630957 Hipass 0.003 Pre-comp 0 Release 0.0002 Ratio 0.020202 AutoMkUp 1 Attack 0.002 resvd 0 Lowpass 0.6 AudIn 0 Dry 3.16228e-8 Wet 1 PreviewF 0 "RMS size" 0.005 Knee 0 AutoRel 0 ClsAttk 1 AntiAls 0
+Include: postEQ.txt
+# VSTPlugin: Library "C:\Program Files\Audio Plugins\bin\vst\reajs.dll" ChunkData "Z3VpdGFyL2Rpc3RvcnRpb24AMjAuMDAwMDAwIDYuMDAwMDAwIC0xMi4wMDAwMDAgMC4wMDAwMDAgLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gAAAAAAA="
+# Preamp: 12 dB

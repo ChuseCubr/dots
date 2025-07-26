@@ -1,0 +1,2 @@
+Filter: ON HP Fc 80 Hz
+Filter: ON LP Fc 12000 Hz

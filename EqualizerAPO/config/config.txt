@@ -1,4 +1,11 @@
-Device: Microphone USB Audio CODEC  {c3933d96-f5f2-46c4-9a90-3152cee07719}
-Include: q2u\config.txt
-Device: Microphone WO Mic Device {998ebeb3-effd-4e2e-a60e-4c097168d1ea}
-Include: phone\config.txt
+Device: Microphone USB Audio CODEC  {4a5e896a-bdba-4339-ab7f-e1da39c07985}
+Include: inputs\q2u\config.txt
+Device:  Microphone WO Mic Device {5dc72c29-4e0b-45c4-9eb1-a5a46ac99baa}
+Include: inputs\phone\config.txt
+# Device:  Microphone Razer Kiyo {990fbd1d-a9d3-41df-948e-169686bf2f2c}
+# Include: inputs\basic\config.txt
+# Device:  Speakers USB Audio CODEC  {2bcd8293-9e85-4244-9920-85ae60689e92}
+# Include: outputs\Takstar Pro 82 ParametricEQ.txt
+# Include: outputs\Moondrop SSP IEF ParametricEQ.txt
+# Include: outputs\Bose QuietComfort Ultra Headphones ParametricEQ.txt
+# Include: outputs\enshittificator.txt
